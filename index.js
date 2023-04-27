@@ -72,5 +72,38 @@ if(savedTheme){
 
 //Navbar-toggle
 
-const menuBtn = document.querySelector('nav-menu-btn');
-const navCloseBtn = document.querySelector('nav-close-btn');
+const menuBtn = document.querySelector('.nav-menu-btn');
+const navCloseBtn = document.querySelector('.nav-close-btn');
+const navBar = document.querySelector('.navbar');
+const navItems = document.querySelectorAll('.nav-items');
+
+
+menuBtn.addEventListener('click', ()=>{
+    navBar.classList.add('active');
+});
+
+navCloseBtn.addEventListener('click', ()=>{
+    navBar.classList.remove('active');
+});
+
+navItems.forEach((item) => {
+    item.addEventListener('click', () =>{
+        navBar.classList.remove('active');
+    });
+});
+
+
+//scroll animations
+ScrollReveal({ 
+    reset: true,
+    distance: '60px',
+    duration: 2500,
+    delay: 100
+ });
+
+ ScrollReveal().reveal('.home .info h2, .about .container .title, .service-section .container .title', {delay: 500, origin: 'left'});
+ ScrollReveal().reveal('.home .info h3, .home .info p, .about-img, .sub-contact-title, .portfolio .container .content, .contact .container .content .contact-left', {delay: 600, origin: 'left'});
+ ScrollReveal().reveal('.home .info .btn, .home .scroll, .about-info .download, .contact-btn,', {delay: 700, origin: 'bottom'});
+ ScrollReveal().reveal('.social-icons i, .about-info .desc p, .service-section .container .sub-title, .service-section .container .content, footer', {delay: 500, origin: 'bottom', interval: 200});
+ ScrollReveal().reveal('.home-img, .about-info .desc h3, .sub-contact, .portfolio .container .title, .contact .container .content .contact-right', {delay: 500, origin: 'right'});
+ ScrollReveal().reveal('.contact .container .contact-title', {delay: 500, origin: 'bottom'});

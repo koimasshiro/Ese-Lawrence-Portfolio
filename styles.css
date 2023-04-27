@@ -128,6 +128,7 @@ header .navbar{
     font-weight: 600;
     padding-left: 20px;
 }
+
 header .navbar ul{
     list-style: none;
     display: flex;
@@ -249,9 +250,11 @@ a:hover{
     }
 }
 
+/*About*/
+
 .about{
     position: relative;
-    width: 1150px;
+    max-width: 1150px;
     margin-left: auto;
     margin-right: auto;
     padding: 6rem 2rem 2rem;
@@ -261,21 +264,7 @@ a:hover{
     font-weight: 600;
     margin-bottom: 2rem;
     border-bottom: 3px solid var(--second-color);
-
-    /* background: linear-gradient(to top, transparent 0%, var(--first-color) 70%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: .1; */
 }
-/* .about-title1:before{
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 5px;
-    right: 0;
-    bottom: 0;
-    background: var(--second-color);
-} */
 
 
 .container{
@@ -286,11 +275,7 @@ a:hover{
     column-gap: 45px;
     width: 100%;
 }
-/* .about-img{
-    position: relative;
-    width: 50%;
-    height: 50%;
-} */
+
 .about-pic{
     max-width: 80px;
     min-width: 500px;
@@ -323,12 +308,12 @@ a:hover{
 /*Services*/
 .service-section{
     margin: 0;
+    padding-top: 10%;
     background: var(--bg-color);
 }
 .service-section .container .content{
     display: flex;
 	flex-direction: row;
-	width: 100%;
 	margin: 60px 0 0 0;
 	padding: 60px;
 	justify-content: center; 
@@ -337,7 +322,7 @@ a:hover{
 
 .service-list{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+   grid-template-columns: repeat(auto-fill, minmax(225px, 1fr)); 
     max-width: 100%;
     margin: 0 auto;
     gap: 20px;
@@ -582,6 +567,7 @@ a:hover{
 }
 
 /*Contact*/
+
 .contact .container .content{
     display: flex;
     justify-content: space-between;
@@ -673,6 +659,14 @@ footer span i:hover{
         justify-content: center;
         align-items: center;
         background: var(--transparent-bg-color);
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s ease;
+        z-index: 99999;
+    }
+    .navbar.active{
+        visibility: visible;
+        opacity: 1;
     }
     .nav-menu-btn{
         background: url('./images/pngegg.png')no-repeat;
@@ -705,9 +699,81 @@ footer span i:hover{
         padding: 40px;
         border-radius: 10px;
         box-shadow: var(--box-shadow);
+        transform: translateY(-50px);
+        transition: .3s ease;
+    }
+    .navbar.active .nav-items{
+        transform: translateY(0);
     }
     .nav-items li{
         margin: 15px 50px;
     }
+    
+    .home .home-container .info{
+        font-size: 0.85rem;
+    }
+    .about{
+        min-width: 100%;
+    }
+    .about .container .content{
+        display: grid;
+        width: 100%;
+        row-gap: 20px;
+    }
+    .about-pic{
+        min-width: 100%;
+    }
+    .about-info{
+        min-width: 100%;
+    }
 
+
+    .sub-contact .contact-crd{
+        display: grid;
+        width: 100%;
+    }
+    .contact-crd .title{
+        font-size: 0.8rem;
+    }
+
+    .contact .content{
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+    .contact .contact-left{
+        margin-bottom: 40px;
+    }
+    .contact .contact-left h2{
+        font-size: 1rem;
+    }
+    .contact-form .first-row input{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 730px){
+    body{
+        margin: 5rem 0 0 0;
+    }
+    .home .home-container{
+        display: grid;
+    }
+    .home-container .home-img{
+        position: absolute;
+    }
+    .home-container .home-img img{
+        width: 65%;
+        transform: translate(80px, -180px);
+    }
+    .home .home-container .info{
+        font-size: 0.8rem;
+    }
+    .social-icons{
+        margin-bottom: 80px;
+    } 
+
+    .service-crd h3{
+        min-width: 100%;
+        font-size: 0.8rem;
+    }
 }
